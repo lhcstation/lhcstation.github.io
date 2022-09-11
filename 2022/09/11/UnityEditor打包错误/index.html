@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    22.8.18IELTS晨读 | lhcstation
+    UnityEditor打包错误 | lhcstation
   </title>
   <meta name="description" content="">
   
   <meta name="keywords" content="
-  IELTS口语,口语素材
+  Unity,Unity-Editor
   ">
   
   <meta name="author" content="LHC">
@@ -130,42 +130,33 @@
     <i class="fa fa-user-o"></i>
     LHC
 
-    <span class="post-date float-right" title="{{moment(1660869875000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1662909679000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1660869875000).fromNow()}}
+      {{moment(1662909679000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>22.8.18IELTS晨读</h1>
-    <h1 id="22-8-18晨读"><a href="#22-8-18晨读" class="headerlink" title="22.8.18晨读"></a>22.8.18晨读</h1><ul>
-<li>compelling and relevant content —— 引人注目的相关内容</li>
-<li>out of the blue —— 突然地、意外地</li>
-<li>we will never know what’s in store for us —— 我们永远不会知道我们会得到什么</li>
-<li>I enjoy museums, it is my <strong>cup of tea</strong>. —— 我喜欢博物馆，这是我的爱好（<strong>喜爱的人或事物</strong>）</li>
-<li>not one’s cup of tea —— 不喜欢某件事物</li>
-<li>Aside from that —— 除此之外</li>
-<li>early bird who catches the worm —— 早起地鸟儿有虫吃</li>
-<li>if I remember correctly —— 如果我没有记错的话</li>
-<li>go viral —— 走红、像病毒一样传播开来[ˈvaɪrəl]</li>
-<li>long run —— 长期</li>
-<li>smaller workforce to prop up or economy, which could hurt our country in the long run —— 劳动力减少以支撑经济，这从长远来看可能会伤害我们的国家</li>
-<li>graduate from university / leave college —— 大学毕业</li>
-<li>I am major in intelligent transportation engineering, because I hope to provide convenient travel for citizens no traffic jams, no traffic accidents, we all can travel more faster, more safer, and more comfortable. —— 我主修智能交通工程，因为我希望为市民提供便捷的交通，没有交通堵塞，没有交通事故，我们都可以旅行得更快、更安全、更舒适。</li>
-<li>hospitable and welcoming —— 热情好客</li>
-<li>a once-in-a-lifetime experience —— 毕生难逢的体验</li>
-<li>from time to time —— 不时地;间或;偶尔</li>
-<li>hustle and bustle —— 喧嚣、熙熙攘攘 [ˈhʌsl ənd ˈbʌsl]</li>
-<li>down in the dumps —— 郁闷的;沮丧的;闷闷不乐的[daʊn ɪn ðə dʌmps]</li>
-<li>One of the most enjoyable experiecnes I’ve had was hiking on the Great Wall when I was only 13. —— 我最愉快的经历之一是在我13岁的时候在长城上徒步旅行。</li>
-<li>I like to get away from it all from time to tiem and go somewhere quite to recharge my batteries. —— 我喜欢时不时地远离它，到某个安静的地方去充电（放松一下）。</li>
-<li>The place was jam-packed —— 拥挤不堪的 [ˌdʒæm ˈpækt]</li>
-<li>work out —— 锻炼</li>
-<li>botanical garden —— 植物园bəˌtænɪkl ˈɡɑːdn]</li>
-<li>zoo —— 动物园</li>
-<li>tourist attraction —— 旅游胜地</li>
+    <h1>UnityEditor打包错误</h1>
+    <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><ul>
+<li>Unity Editor在开发的时候固然好用，但是到打包的时候就会报错：</li>
+</ul>
+<blockquote>
+<p>The type or namespace name `UnityEditor’ could not be found</p>
+</blockquote>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
+<li>使用条件编译，打包的时候跳过UnityEditor里面的代码即可</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEditor;</span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="keyword">if</span> UNITY_EDITOR</span></span><br><span class="line">	your code</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>例如：</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> UNITY_EDITOR </span></span><br><span class="line"></span><br><span class="line">[<span class="meta">CustomEditor(typeof(InitTrafficLights))</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EditorInitTrafficLight</span> : <span class="title">Editor</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnInspectorGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        DrawDefaultInspector();</span><br><span class="line">        InitTrafficLights scriptLight = (InitTrafficLights)target;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;Create Light&quot;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            scriptLight.ReadXML();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><ul>
+<li>添加条件编译后，#if与#endif中间的代码在打包时就不会被编译，所有相关逻辑代码不应该放在UnityEditor中</li>
+<li>UnityEditor应该进行<strong>函数调用</strong>，而不是函数的<strong>逻辑实现</strong></li>
 </ul>
 
   </article>
