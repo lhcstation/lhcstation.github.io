@@ -140,7 +140,10 @@
 
   <article class="post-content">
     <h1>Learning Eco-Driving Strategies at Signalized Intersections</h1>
-    <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+    <blockquote>
+<p>Jayawardana V, Wu C. Learning Eco-Driving Strategies at Signalized Intersections[J]. arXiv preprint arXiv:2204.12561, 2022.</p>
+</blockquote>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>车辆在主干道上的信号控制交叉口出现空转与剧烈加速现象，这导致燃油消耗与二氧化碳排放。因此，有一系列关于生态驾驶控制策略的研究，以减少交叉口处的燃油消耗与尾气排放等级。然而，在各种交通情景中设计有效控制策略的方法仍然难以捉摸。在本文中，我们提出了一种强化学习RL方法，来学习有效的生态驾驶控制策略。我们研究了不同学习策略对于燃油消耗、二氧化碳排放、行驶时间的潜在影响，并与自然驾驶模型和基于模型的基准方法进行了对比。我们进一步证明了学习策略在混合交通场景下的可推广性。模拟结果表明，在CAV100%渗透率的情况下，燃油消耗减少18%，二氧化碳排放水平减少25%，行驶速度提高20%。此外，结果表明，即使是25%的CAV渗透率，也可以带来至少50%的总燃料和减排效益。</li>
 </ul>
 <hr>
@@ -338,8 +341,10 @@ R_{4} & \text { otherwise }
 </ul>
 <hr>
 <h2 id="个人总结："><a href="#个人总结：" class="headerlink" title="个人总结："></a>个人总结：</h2><ul>
-<li>新方法/理论：<strong>部分可观察马尔可夫决策过程POMDP</strong>、<strong>zero-shot</strong>、<strong>Trust Region Policy Optimization (TRPO)</strong></li>
-<li>研究思路：强化学习对路口车辆的加速度进行连续控制，引入POMDP，增加车辆的”视野”，转移函数通过SUMO仿真软件获得，奖励函数自己”随便”弄了一个（指没有理论推导而得到），求解算法使用的是A-C，最终得到车辆加速度</li>
+<li><p>新方法/理论：<strong>部分可观察马尔可夫决策过程POMDP</strong>、<strong>zero-shot</strong>、<strong>Trust Region Policy Optimization (TRPO)</strong></p>
+</li>
+<li><p>研究思路：强化学习对路口车辆的加速度进行连续控制，引入POMDP，增加车辆的”视野”，转移函数通过SUMO仿真软件获得，奖励函数自己”随便”弄了一个（指没有理论推导而得到），求解算法使用的是A-C，最终得到车辆加速度</p>
+</li>
 <li><p>个人质疑：</p>
 <ul>
 <li>作者没有给出训练与实际控制的计算时间对比：根据作者给出的DRL训练使用55k的batch size（55k？怎么会这么大，严重质疑，这要多大的显存？）和3k次的 iterations，估计训练时间不短，同样也没有给出网络正向传播实时控制的计算时间，实时性存在质疑。</li>
@@ -349,7 +354,20 @@ R_{4} & \text { otherwise }
 <li>最后的模型效果质疑：与Eco-CACC相比，作者提出的基于DRL的控制方案好像只优化了一点点点点，而且平均速度还低于Eco-CACC，回想到作者的奖励函数设置，严重怀疑，作者是通过<strong>人工调整奖励函数，硬生生凑出来的最后的结果</strong>，如果奖励函数有一点点的改变，将不会有这么好的结果，这也是强化学习的通病。</li>
 </ul>
 </li>
+<li><p>收获：</p>
+<ul>
+<li><p>学习（或者准备学习）了一些新的理论方法</p>
+</li>
+<li><p>思考：DRL实际效果可能不一定比Eco-CACC好多少，<strong>可否从奖励函数出发，通过某种优化模型来计算奖励函数中的系数</strong>。</p>
+</li>
+<li><p>下篇文章：</p>
+</li>
 </ul>
+</li>
+</ul>
+<blockquote>
+<p>Yang H, Rakha H, Ala M V. Eco-cooperative adaptive cruise control at signalized intersections considering queue effects[J]. IEEE Transactions on Intelligent Transportation Systems, 2016, 18(6): 1575-1585.</p>
+</blockquote>
 
   </article>
 </div>
