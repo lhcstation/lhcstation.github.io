@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Unity3D中的Z-fithgting问题 | lhcstation
+  </title>
+  <meta name="description" content="My Blog Description">
+  
+  <meta name="keywords" content="
+  Unity,Unity-Shader
+  ">
+  
+  <meta name="author" content="LHC">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 16 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 17 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 7 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">lhcstation</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    LHC
+
+    <span class="post-date float-right" title="{{moment(1660977716000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1660977716000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Unity3D中的Z-fithgting问题</h1>
+    <h2 id="一、什么是Z-fighting"><a href="#一、什么是Z-fighting" class="headerlink" title="一、什么是Z-fighting"></a>一、什么是Z-fighting</h2><ul>
+<li>多个对象争夺最接近相机的渲染（争夺顶部）。当对象由于在渲染场景时具有相似的z-buffer值而重叠时，可能会发生这种情况。</li>
+<li><p>简单的讲，就是多个平面共面，导致的他们之间相互“打架”，都想让相机先看到自己而产生闪烁，如下图：</p>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/z-fighting-demo.gif" alt=""></p>
+</li>
+<li><p>正常的渲染应如下图：</p>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/z-fighting-demo2.gif" alt=""></p>
+</li>
+</ul>
+<h2 id="二、如何解决Z-fighting"><a href="#二、如何解决Z-fighting" class="headerlink" title="二、如何解决Z-fighting"></a>二、如何解决Z-fighting</h2><h4 id="1-在物理上将对象移得更远"><a href="#1-在物理上将对象移得更远" class="headerlink" title="1. 在物理上将对象移得更远"></a>1. 在物理上将对象移得更远</h4><ul>
+<li>不推荐，视觉效果差，而且实际工程中也不允许对象的位置发生偏移。</li>
+</ul>
+<h4 id="2-增加相机的近剪裁平面并减少相机的远剪裁平面"><a href="#2-增加相机的近剪裁平面并减少相机的远剪裁平面" class="headerlink" title="2. 增加相机的近剪裁平面并减少相机的远剪裁平面"></a>2. 增加相机的近剪裁平面并减少相机的远剪裁平面</h4><ul>
+<li>调整主相机的Clipping Planes中的Near与Far属性<br><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/ClippingPlaneLowering.png" alt=""></li>
+</ul>
+<h4 id="3-修改Shader深度偏移设置不同对象的渲染顺序"><a href="#3-修改Shader深度偏移设置不同对象的渲染顺序" class="headerlink" title="3. 修改Shader深度偏移设置不同对象的渲染顺序"></a>3. 修改Shader深度偏移设置不同对象的渲染顺序</h4><ul>
+<li>在shader中添加<code>Offset &lt;factor&gt;, &lt;units&gt;</code></li>
+</ul>
+<h2 id="三、示例——基于方法3"><a href="#三、示例——基于方法3" class="headerlink" title="三、示例——基于方法3"></a>三、示例——基于方法3</h2><ul>
+<li><p>新建shader脚本：Create-&gt;Shader-&gt;Stander Surface Shader</p>
+</li>
+<li><p>打开脚本</p>
+</li>
+<li><p>Properties中添加</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Properties</span><br><span class="line">&#123;</span><br><span class="line">	_OffsetFactor(<span class="string">&quot;Offset Factor&quot;</span>, Float) = <span class="number">0</span></span><br><span class="line">	_OffsetUnits(<span class="string">&quot;Offset Units&quot;</span>, Float) = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SubShader中添加</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SubShader</span><br><span class="line">&#123;</span><br><span class="line">    Offset[_OffsetFactor],[_OffsetUnits]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>将shader拖拽到材质球中，点击材质球，在inspector中可以看到<code>Offset Factor</code> 与 <code>Offset Units</code>属性</p>
+<p>  <img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/shader-offset1.png" alt=""></p>
+</li>
+<li><p><code>Offset Factor</code> 与 <code>Offset Units</code>官方介绍中取值为[-1, 1]，笔者实际操作发现-2、-3等数值，也可以使用</p>
+</li>
+<li><p>为不同材质球设置不同的<code>Offset Factor</code> 与 <code>Offset Units</code>，即可解决Z-fighting问题</p>
+</li>
+</ul>
+<h2 id="四、相同材质物体的Z-fighting问题"><a href="#四、相同材质物体的Z-fighting问题" class="headerlink" title="四、相同材质物体的Z-fighting问题"></a>四、相同材质物体的Z-fighting问题</h2><ul>
+<li>如果发生Z-fighting的物体材质相同，则还需进一步的优化：</li>
+<li>思路：不同的物体设置不同的<code>Offset Factor</code> 与 <code>Offset Units</code></li>
+<li>核心：获取对象<code>InstanceID</code>，通过C#代码改变物体材质</li>
+<li><p>代码如下：</p>
+  <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GameObject obj = <span class="keyword">new</span> GameObject();</span><br><span class="line"><span class="comment">// 获取独一无二的InstanceID</span></span><br><span class="line"><span class="built_in">int</span> instanceID = obj.GetInstanceID();</span><br><span class="line"><span class="comment">// 获取材质</span></span><br><span class="line">Material _material = obj.GetComponent&lt;MeshRenderer&gt;().material;</span><br><span class="line"><span class="comment">// 设置材质属性_OffsetFactor与_OffsetUnits</span></span><br><span class="line">_material.SetFloat(<span class="string">&quot;_OffsetFactor&quot;</span>, instanceID * <span class="number">0.00002f</span>);</span><br><span class="line">_material.SetFloat(<span class="string">&quot;_OffsetUnits&quot;</span>, instanceID * <span class="number">0.00002f</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>优化前：</p>
+<p>  <img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E9%A1%B9%E7%9B%AE.gif" alt=""></p>
+</li>
+<li><p>优化后：</p>
+<p>  <img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/z-fighting-demo3.gif" alt=""></p>
+</li>
+</ul>
+<h2 id="五、reference"><a href="#五、reference" class="headerlink" title="五、reference"></a>五、reference</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.unity3dtips.com/unity-z-fighting-solutions/">如何使用多种解决方案修复 Unity Z-Fighting</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.unity3d.com/Manual/SL-Offset.html">ShaderLab command: Offset</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/linjf520/article/details/94596104">Unity Shader - Offset 的测试，解决简单的z-fighting情况</a></p>
+</li>
+</ul>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://lhcstation.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 LHC</li>
+      <li><a href="https://lhcstation.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/sabrinaluo">Github</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="http://weibo.com/206663121">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Learning Eco-Driving Strategies at Signalized Intersections | lhcstation
+  </title>
+  <meta name="description" content="My Blog Description">
+  
+  <meta name="keywords" content="
+  强化学习,交叉口控制,生态驾驶
+  ">
+  
+  <meta name="author" content="LHC">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 16 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 17 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 7 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">lhcstation</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    LHC
+
+    <span class="post-date float-right" title="{{moment(1662881065000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1662881065000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Learning Eco-Driving Strategies at Signalized Intersections</h1>
+    <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>车辆在主干道上的信号控制交叉口出现空转与剧烈加速现象，这导致燃油消耗与二氧化碳排放。因此，有一系列关于生态驾驶控制策略的研究，以减少交叉口处的燃油消耗与尾气排放等级。然而，在各种交通情景中设计有效控制策略的方法仍然难以捉摸。在本文中，我们提出了一种强化学习RL方法，来学习有效的生态驾驶控制策略。我们研究了不同学习策略对于燃油消耗、二氧化碳排放、行驶时间的潜在影响，并与自然驾驶模型和基于模型的基准方法进行了对比。我们进一步证明了学习策略在混合交通场景下的可推广性。模拟结果表明，在CAV100%渗透率的情况下，燃油消耗减少18%，二氧化碳排放水平减少25%，行驶速度提高20%。此外，结果表明，即使是25%的CAV渗透率，也可以带来至少50%的总燃料和减排效益。</li>
+</ul>
+<hr>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li><p>温室气体-&gt;公路运输排放比重较大-&gt;车辆的stop-and-go、低速、超速与空转影响排放-&gt;设计驾驶策略的重要性</p>
+</li>
+<li><p>利用CAV作为控制手段，在接近和离开十字路口时实现低油耗和低排放——广义<strong>拉格朗日控制</strong>-&gt;通过车辆控制而不是固定的信号灯</p>
+</li>
+<li><p>现有工作-&gt;对车辆动力学与车间动力学进行简化-&gt;目标不考虑行驶时间，只考虑减少燃料与排放</p>
+</li>
+<li><p>利用深度强化学习DRL来获得CAV在接近和离开信号交叉口时的拉格朗日控制策略-&gt;并且使用多智能体的DRL方法</p>
+</li>
+<li><p>本文目标：减少燃料消耗同时减少对于行程时间的影响（燃料消耗与二氧化碳排放成比例）-&gt;基于学习的控制策略与基于模型的基准方法效果相当，显著优于基于自然驾驶naturalistic driving的情况</p>
+</li>
+<li><p>主要贡献</p>
+<ul>
+<li>将交叉口处的拉格朗日控制表述为<strong>部分可观察马尔可夫决策过程POMDP</strong>，并使用强化学习来解决它，以减少加速和怠速引起的燃料消耗（从而降低排放水平），同时最小化对行程时间的影响。</li>
+<li>我们评估了自然驾驶情景和基于模型的基线下学习的生态驾驶控制策略，我们的方法燃料显著节约和排放水平的降低，同时也改善平均行驶时间。</li>
+<li>通过<strong>zero-shot</strong>方法，将学习控制策略迁移到混合交通场景（不同的CAV渗透率），来评价学习策略的普适性；混合场景在训练中是没有样本的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><h3 id="Eco-driving"><a href="#Eco-driving" class="headerlink" title="Eco-driving"></a>Eco-driving</h3><ul>
+<li><p>生态驾驶的研究可分为基于高速公路和基于主干线的控制策略。</p>
+<ul>
+<li>基于高速公路的策略主要关注在没有波动的情况下保持理想的速度，因为交通流很少受到交通信号的影响。</li>
+<li>基于主干线的控制策略，受交通信号的影响更为复杂。基于排队长度、滚动优化、模型预测控制、动态规划。</li>
+</ul>
+</li>
+<li><p>现有方法的局限：需要实时求解非线性优化问题；</p>
+</li>
+<li><p>DRL的优势：不假设任何动态模型，运行速度快</p>
+</li>
+</ul>
+<h3 id="Reinforcement-learning-for-autonomous-traffic-control"><a href="#Reinforcement-learning-for-autonomous-traffic-control" class="headerlink" title="Reinforcement learning for autonomous traffic control"></a>Reinforcement learning for autonomous traffic control</h3><ul>
+<li>即使是一小部分自动驾驶车辆也可以从 stop-and-go waves 中稳定交通</li>
+</ul>
+<hr>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="A-生态驾驶的无模型强化学习-Model-free-Reinforcement-Learning-for-Eco-driving"><a href="#A-生态驾驶的无模型强化学习-Model-free-Reinforcement-Learning-for-Eco-driving" class="headerlink" title="A 生态驾驶的无模型强化学习 Model-free Reinforcement Learning for Eco-driving"></a>A 生态驾驶的无模型强化学习 Model-free Reinforcement Learning for Eco-driving</h3><ul>
+<li><strong>部分可观察马尔可夫决策过程</strong>POMDP：在智能体无法观察实际状态的环境中，包含两个或更多组件的扩展MDP公式，观察空间$\Omega$条件观测概率$O: \mathcal{S} \times \Omega \rightarrow \Delta(\Omega)$  </li>
+<li><strong>环境状态部分可知</strong>动态不确定环境下序贯决策的理想模型，<strong>agent无法知道自己所处的环境状态</strong> ，需要借助于额外的传感器，或者与其他的agent进行交互等方式才能获知自己的state</li>
+<li>本文将交叉口的生态驾驶描述为<strong>POMDP</strong>，并使用<strong>DRL</strong>进行求解。</li>
+</ul>
+<h3 id="B-燃料消耗模型"><a href="#B-燃料消耗模型" class="headerlink" title="B 燃料消耗模型"></a>B 燃料消耗模型</h3><ul>
+<li><p>其中P为车辆瞬时功率、F为车辆瞬时燃料消耗、$\alpha_{0}, \alpha_{1}, \alpha_{2}$为需要校准的常数，$t$为时间步长</p>
+<ul>
+<li><script type="math/tex; mode=display">
+F(t)=\left\{\begin{array}{cc}
+\alpha_{0}+\alpha_{1} P(t)+\alpha_{2} P(t)^{2} & \forall P(t) \geq 0 \\
+\alpha_{0} & \forall P(t)<0
+\end{array}\right.</script></li>
+</ul>
+</li>
+<li><p>瞬时功率计算为</p>
+<ul>
+<li><script type="math/tex; mode=display">
+P(t)=\left(\frac{R(t)+1.04 m a(t)}{3600 \eta}\right) v(t)</script></li>
+</ul>
+</li>
+<li><p>车辆阻力计算为</p>
+</li>
+<li><script type="math/tex; mode=display">
+\begin{aligned}
+R(t)=& \frac{\rho}{25.92} C_{d} C_{a} A_{f} v(t)^{2}+9.8066 m \frac{c_{0}}{1000} c_{1} v(t) 
+&+9.8066 m \frac{c_{0}}{1000} c_{2}+9.8066 m G(t)
+\end{aligned}</script></li>
+<li><p>$C_{d},C_{a},A_{f}$分别是车辆阻力系数、高度修正系数和车辆前部面积。$c_{0},c_{1},c_{2}$是取决于道路和轮胎状况的滚动阻力相关参数。车辆质量用m表示，瞬时车辆加速度用a表示，道路坡度用G表示。空气密度用$\rho$表示，车辆传动系统效率用$\eta$表示。</p>
+</li>
+</ul>
+<h3 id="C-二氧化碳排放模型"><a href="#C-二氧化碳排放模型" class="headerlink" title="C 二氧化碳排放模型"></a>C 二氧化碳排放模型</h3><ul>
+<li>我们使用微观交通仿真软件SUMO的默认排放模型，作为我们的二氧化碳排放模型。</li>
+</ul>
+<h3 id="D-智能驾驶模型-Intelligent-Driver-Model"><a href="#D-智能驾驶模型-Intelligent-Driver-Model" class="headerlink" title="D 智能驾驶模型 Intelligent Driver Model"></a>D 智能驾驶模型 Intelligent Driver Model</h3><ul>
+<li><p>模拟人类驾驶，使用Intelligent Driver Model (IDM)模型：IDM可以合理地代表现实的驾驶员行为，并可以产生交通波。</p>
+</li>
+<li><p>$v_{0},h_{0},t$分别表示期望速度、空间车头时距和时间车头时距。$c$为最大加速度，$b$舒适制动减速度。头车与自动驾驶车辆的速度差为$\Delta t(v)$：$\delta$是常数。</p>
+<ul>
+<li><script type="math/tex; mode=display">
+a(t)=\frac{d v(t)}{d t}=c\left[1-\left(\frac{v(t)}{v_{0}}\right)^{\delta}-\left(\frac{H(v(t), \Delta v(t)}{h(t)}\right)^{2}\right]_{}\\
+H(v(t), \Delta v(t))=h_{0}+\max \left(0, v(t) T+\frac{v(t) \Delta v(t)}{2 \sqrt{c b}}\right)</script></li>
+<li><script type="math/tex; mode=display">
+\begin{array}{|c|c|c||c|c|c|}
+\hline \text { Parameter } & \text { Unit } & \text { Value } & \text { Parameter } & \text { Unit } & \text { Value } \\
+\hline v_{0} & \mathrm{~m} / \mathrm{s} & 30 & \mathrm{c} & \mathrm{m} / \mathrm{s}^{2} & 1 \\
+\hline \mathrm{T} & \mathrm{s} & 1 & \mathrm{~b} & \mathrm{~m} / \mathrm{s}^{2} & 1.5 \\
+\hline h_{0} & \mathrm{~m} & 1.5 & \delta & - & 4 \\
+\hline
+\end{array}</script></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h2><h3 id="A-问题公式-Problem-F-ormulation"><a href="#A-问题公式-Problem-F-ormulation" class="headerlink" title="A 问题公式 Problem F ormulation"></a>A 问题公式 Problem F ormulation</h3><ul>
+<li><p>目标：最小化CAV车队的<strong>燃料消耗</strong>，同时在车辆接近和离开信号交叉口时对<strong>行驶时间</strong>的影响最小。对每个车辆$i$：</p>
+<ul>
+<li><script type="math/tex; mode=display">
+\min J=\sum_{i=1}^{n} \int_{0}^{T_{i}} F\left(a_{i}(t), v_{i}(t)\right) d t+T_{i}</script></li>
+<li><script type="math/tex; mode=display">
+a_{i}(t)=f_{i}\left(h_{i}(t), \dot{h}_{i}(t), v_{i}(t)\right)\\
+\int_{0}^{T_{i}} v_{i}(t) d t=d\\
+h_{\min } \leq h_{i}(t) \leq h_{\max } \quad \forall t \in\left[0, T_{i}\right]\\
+v_{\min } \leq v_{i}(t) \leq v_{\max } \quad \forall t \in\left[0, T_{i}\right]\\
+a_{\min } \leq a_{i}(t) \leq a_{\max } \quad \forall t \in\left[0, T_{i}\right]</script></li>
+<li>$n$是车辆数量，$F$是燃料消耗，$T_{i}$是$CAV_{i}$的行驶时间，$d$是总行驶距离。$h(t)$和$\dot{h}(t)$表示车头时距和相对速度。$h_{min}$和$h_{max}$是最小和最大车头时距，$v_{min}$和$v_{max}$是最小速度和最大速度，$a_{min}$和$a_{max}$分别是最小加速度和最大加速度。这三个强制约束保证了安全性、通过V2V通信的连通性和乘客舒适性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="B-近似控制的无模型强化学习-Model-free-Reinforcement-Learning-for-Approximate-Control"><a href="#B-近似控制的无模型强化学习-Model-free-Reinforcement-Learning-for-Approximate-Control" class="headerlink" title="B 近似控制的无模型强化学习 Model-free Reinforcement Learning for Approximate Control"></a>B 近似控制的无模型强化学习 Model-free Reinforcement Learning for Approximate Control</h3><ul>
+<li><p>我们将信号交叉口的生态驾驶问题表述为<strong>离散时间POMDP</strong>，并使用<strong>政策梯度(policy gradient)</strong>方法求解。</p>
+</li>
+<li><p><strong>假设</strong>：每个CAV车辆搭载V2V通信设备，<strong>通信半径</strong>为$r_{v2v}$</p>
+</li>
+<li><p><strong>观测值 Observations：</strong></p>
+<ul>
+<li><script type="math/tex; mode=display">
+\left(v_{\text {cav }}, p_{\text {cav }}, t l_{\text {phase }}, v_{l e a d}, p_{l e a d}, v_{\text {follow }}, p_{\text {follow }}, t l_{\text {time }}\right)</script></li>
+<li><p>其中$v_{cav}, v_{lead}, v_{follow}$分别表示cav，cav前车与cav后车的速度，$p_{cav}, p_{lead}, p_{follow}$分别表示cav，cav前车与cav后车的位置，$tl_{phase}$为one-hot编码，表示ego-CAV的信号相位，$tl_{time}$表示CAV所在相位的绿灯时间</p>
+</li>
+<li><p>所有的观测数值进行min-max归一化</p>
+</li>
+<li><p>车辆位置不能超过最大通信距离$p_{cav}-p_{lead} \in (-r_{v2v}, r{v2v})$</p>
+</li>
+<li><p>同时为了确保I2V通信不中断，需要$p_{cav}-p_{tl} \in (0, r_{i2v})$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>动作空间 Actions：</strong></p>
+<ul>
+<li>连续动作空间$a \in (a_{min}, a_{max})$</li>
+</ul>
+</li>
+<li><p><strong>转移方程 Transition Function：</strong></p>
+<ul>
+<li>没有直接定义stochastic转移方程，使用微观仿真软件进行采样$s_{t+1} \sim p\left(s_{t}, a_{t}\right)$</li>
+</ul>
+</li>
+<li><p><strong>奖励函数 Reward：</strong></p>
+<ul>
+<li><p>两个困难点：</p>
+<ul>
+<li>目标互斥，减速可以降低燃油消耗，但加速可以减少通行时间</li>
+<li>目标变化率不同</li>
+</ul>
+</li>
+<li><p>奖励函数获取方式：<strong>manual trial and error</strong></p>
+<ul>
+<li><script type="math/tex; mode=display">
+\begin{array}{l}
+\begin{array}{c}
+R_{1}=\mu_{1} \\ \\
+R_{2}=\mu_{2}+\mu_{3} \exp (\bar{v}) \\ \\
+R_{3}=\mu_{4}+\mu_{5} \exp (\bar{v})+\mu_{6} \bar{s} \\ \\
+R_{4}=\mu_{7}+\mu_{8} \exp \left(\mu_{9} \bar{f}\right)+\mu_{10} \exp (\bar{v})+\mu_{11} \bar{s}
+\end{array}\\ \\
+r(s, a):=\left\{\begin{array}{ll}
+R_{1} & \text { if any vehicle stops } \\ 
+& \text { at the start of an approach } \\
+R_{2} & \text { if } \bar{f} \leq \delta \wedge \bar{s}=0 \\
+R_{3} & \text { if } \bar{f} \leq \delta \wedge \bar{s}>0 \\
+R_{4} & \text { otherwise }
+\end{array}\right.
+\end{array}</script></li>
+<li><p>$\bar{f},\bar{v},\bar{s}$是每辆车在每个相位的平均燃油消耗量</p>
+</li>
+<li><script type="math/tex; mode=display">
+\begin{array}{|c|c||c|c||c|c|}
+\hline \text { Parameter } & \text { Value } & \text { Parameter } & \text { Value } & \text { Parameter } & \text { Value } \\
+\hline \mu_1 & -100 & \mu_2 & -5 & \mu_3 & 5 \\
+\hline \mu_4 & -5 & \mu_5 & 5 & \mu_6 & -10 \\
+\hline \mu_7 & -7 & \mu_8 & -3 & \mu_9 & 1000 \\
+\hline \mu_{10} & 4 & \delta & 0.01 & \mu_{11} & -10 \\
+\hline
+\end{array}</script></li>
+<li><p>归一化：燃料消耗和速度基于最小-最大归一化进行归一化，而每相停车车辆数在该相车辆总数上进行归一化。</p>
+</li>
+<li><p>奖励$R_{1}$鼓励车辆刚进入交叉路口时不停车，此时的action一定是最优的：因为在进入交叉口的时候停车将影响其他车辆并且增加燃料消耗</p>
+</li>
+<li><p>奖励$R_{2}$鼓励车辆加速行驶，在当前燃料消耗低于定义的阈值$\delta$时</p>
+</li>
+<li><p>奖励$R_{3}$假设燃油消耗仍小于定义的阈值$\delta$鼓励较少的停车和通行行为，惩罚低速运行和由于红灯所产生的停车行为</p>
+</li>
+<li><p>奖励$R_{4}$鼓励其他情况下的低油耗和高速度，同时惩罚车辆停车，以减少停车和通行行为。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h2><h3 id="A-神经网络与仿真设置"><a href="#A-神经网络与仿真设置" class="headerlink" title="A 神经网络与仿真设置"></a>A 神经网络与仿真设置</h3><ul>
+<li>微观交通仿真软件SUMO</li>
+</ul>
+<h3 id="B-超参数"><a href="#B-超参数" class="headerlink" title="B 超参数"></a>B 超参数</h3><ul>
+<li>使用<strong>Trust Region Policy Optimization (TRPO)</strong>用于训练具有两个隐层的NN，每个隐层有64个神经元，激活函数为$tanh$</li>
+<li>训练方式：集中训练-分布执行 Actor-Critic模式</li>
+<li>a training batch size of 55000，3000 training iterations</li>
+</ul>
+<hr>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><ul>
+<li><p>两个问题</p>
+<ul>
+<li>提出的控制策略与自然驾驶和基于模型的控制的基准方法相比如何？</li>
+<li>提出的控制策略泛化能力如何？</li>
+</ul>
+</li>
+<li><p>多个Baseline：V-IDM、N-IDM、M-IDM、Eco-CACC</p>
+</li>
+</ul>
+<hr>
+<h2 id="未来的研究方向"><a href="#未来的研究方向" class="headerlink" title="未来的研究方向"></a>未来的研究方向</h2><ul>
+<li>考虑多个信号交叉口下的控制方法</li>
+<li>奖励函数设置，考虑到所提出方法的最终收益在很大程度上取决于奖励函数的设计</li>
+</ul>
+<hr>
+<h2 id="个人总结："><a href="#个人总结：" class="headerlink" title="个人总结："></a>个人总结：</h2><ul>
+<li><p>新方法/理论：<strong>部分可观察马尔可夫决策过程POMDP</strong>、<strong>zero-shot</strong>、<strong>Trust Region Policy Optimization (TRPO)</strong></p>
+</li>
+<li><p>研究思路：强化学习对路口车辆的加速度进行连续控制，引入POMDP，增加车辆的”视野”，转移函数通过SUMO仿真软件获得，奖励函数自己”随便”弄了一个（指没有理论推导而得到），求解算法使用的是A-C，最终得到车辆加速度</p>
+</li>
+<li><p>个人质疑：</p>
+<ul>
+<li>作者没有给出训练与实际控制的计算时间对比：根据作者给出的DRL训练使用55k的batch size（55k？怎么会这么大，严重质疑，这要多大的显存？）和3k次的 iterations，估计训练时间不短，同样也没有给出网络正向传播实时控制的计算时间，实时性存在质疑。</li>
+<li>应用到不同的交叉口应该需要重新训练模型</li>
+<li>作者没有详细给出zero-shot的过程与结果</li>
+<li>最重要的，奖励函数设置：强化学习的通病，作者原文是这样写的：These two factors make the design of reward function difficult. <strong>With manual trial and error,</strong> we fine-tuned our reward function to follows. 通过<strong>人工试错</strong>？哈哈。。</li>
+<li>最后的模型效果质疑：与Eco-CACC相比，作者提出的基于DRL的控制方案好像只优化了一点点点点，而且平均速度还低于Eco-CACC，回想到作者的奖励函数设置，严重怀疑，作者是通过<strong>人工调整奖励函数，硬生生凑出来的最后的结果</strong>，如果奖励函数有一点点的改变，将不会有这么好的结果，这也是强化学习的通病。</li>
+</ul>
+</li>
+</ul>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://lhcstation.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 LHC</li>
+      <li><a href="https://lhcstation.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/sabrinaluo">Github</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="http://weibo.com/206663121">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

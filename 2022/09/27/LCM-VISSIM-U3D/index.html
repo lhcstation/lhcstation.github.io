@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    LCM-VISSIM-U3D | lhcstation
+  </title>
+  <meta name="description" content="My Blog Description">
+  
+  <meta name="keywords" content="
+  Unity,VISSIM,LCM
+  ">
+  
+  <meta name="author" content="LHC">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 16 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 17 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 7 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">lhcstation</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    LHC
+
+    <span class="post-date float-right" title="{{moment(1664243148000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1664243148000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>LCM-VISSIM-U3D</h1>
+    <blockquote>
+<p>LCM is a set of libraries and tools for message passing and data marshalling, targeted at real-time systems where high-bandwidth and low latency are critical. It provides a publish/subscribe message passing model and automatic marshalling/unmarshalling code generation with bindings for applications in a variety of programming languages.</p>
+</blockquote>
+<h2 id="LCM源码编译"><a href="#LCM源码编译" class="headerlink" title="LCM源码编译"></a>LCM源码编译</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/lcm-proj/lcm">lcm-proj/lcm</a></li>
+<li><p>LCM在Linux环境下的安装十分的简单，但是在windows环境中，由于众嗦周知的原因，需要配置各种环境，较为繁琐，可以参考下面这篇博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixinhum/article/details/81354061">LCM通信包在Windows 64位环境下的编译</a></p>
+</li>
+<li><p>如果每次使用LCM都要从源码进行编译，显然这是一种非常愚蠢的做法，因此我已经把编译好的dll文件放在<a target="_blank" rel="noopener" href="https://github.com/lhcstation/LCM-DLL">我的GitHub</a>上面了，里面包含C++版本的dll和一个C#版本的dll，直接拿来用就可以了。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/fuckWINDOWS.jpg" alt=""></p>
+<h2 id="Visual-Studio配置"><a href="#Visual-Studio配置" class="headerlink" title="Visual Studio配置"></a>Visual Studio配置</h2><ul>
+<li><p>如果是从源码进行的编译，会在lcm根目录下生成build文件夹，里面是已经配置好的各种示例工程</p>
+</li>
+<li><p>如果不是从源码进行编译，直接使用预先编译好的dll，则可以参考GitHub仓库中<code>build</code>文件夹中VS的配置方式，主要使用<code>lcm-listener</code>、<code>lcm-sender</code>、<code>lcm-gen</code>这三个工程</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/lcmConfig01.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/lcmConfig02.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/lcmConfig03.png" alt=""></p>
+<h2 id="VISSIM-DriverModel-DLL"><a href="#VISSIM-DriverModel-DLL" class="headerlink" title="VISSIM-DriverModel.DLL"></a>VISSIM-DriverModel.DLL</h2><ul>
+<li><p>建议从VISSIM官方给出的DriverModel模板入手，进行开发；一个可以参考的例子是<a target="_blank" rel="noopener" href="https://github.com/lhcstation/LCM-DLL/tree/main/DriverModel_DLL">lhcstation/LCM-DLL</a></p>
+</li>
+<li><p>需要定义数据模板，即在<code>lcm-gen</code>文件夹根目录下新建文件<code>example_t.lcm</code>，并配置数据类型，一个示例如下：</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package exlcm;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">example_t</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int8_t</span> velID;</span><br><span class="line">    <span class="type">double</span> time;</span><br><span class="line">    <span class="type">double</span> velFrontcoorX;</span><br><span class="line">    <span class="type">double</span> velFrontcoorY;</span><br><span class="line">    <span class="type">double</span> velEndcoorX;</span><br><span class="line">    <span class="type">double</span> velEndcoorY;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>随后执行<code>lcm-gen -x example_t.lcm</code>，若使用VS，则添加控制台命令<code>-x example_t.lcm</code>，运行后会在当前文件夹生成一个<code>exlcm/example_t.hpp</code>文件</p>
+</li>
+<li><p>发送端VISSIM-dll提供一个可行的参考示例：<a target="_blank" rel="noopener" href="https://github.com/lhcstation/LCM-DLL/blob/main/DriverModel_DLL/DriverModel.cpp">LCM-DLL/DriverModel_DLL/DriverModel.cpp</a></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>⚠</strong> 请将<a target="_blank" rel="noopener" href="https://github.com/lhcstation/LCM-DLL/tree/main/CPP_dll">lhcstation/LCM-DLL</a>文件夹中所有dll文件放置到本机<code>C:\Windows\System32</code>文件夹下，在编译生成<code>DroverModel.dll</code>，否则VISSIM会提示如下错误：</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/lcmERROR1.jpg" alt=""></p>
+<h2 id="U3D接收端（基于C-）"><a href="#U3D接收端（基于C-）" class="headerlink" title="U3D接收端（基于C#）"></a>U3D接收端（基于C#）</h2><ul>
+<li><p>首先需要编译C#版的<code>.dll</code>以供<code>.cs</code>调用，提供一个可用的dll：<a target="_blank" rel="noopener" href="https://github.com/lhcstation/LCM-DLL/tree/main/Csharp_dll">LCM-DLL/Csharp_dll</a></p>
+</li>
+<li><p>将<code>.dll</code>放置在<code>Assets/Plugins/</code>内，并在需要调用的<code>.cs</code>脚本中引用<code>using LCM; using LCM.LCM;</code>，提供一个可用的参考<a target="_blank" rel="noopener" href="https://github.com/lhcstation/LCM-DLL/blob/main/Csharp-listener/lcm-server/Program.cs">LCM-DLL/Csharp-listener/lcm-server/Program.cs</a></p>
+</li>
+</ul>
+<h2 id="通信速度"><a href="#通信速度" class="headerlink" title="通信速度"></a>通信速度</h2><p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/lcm-result.jpg" alt=""></p>
+<h4 id="enjoy-it-😀"><a href="#enjoy-it-😀" class="headerlink" title="enjoy it 😀"></a>enjoy it 😀</h4>
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://lhcstation.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 LHC</li>
+      <li><a href="https://lhcstation.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/sabrinaluo">Github</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="http://weibo.com/206663121">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

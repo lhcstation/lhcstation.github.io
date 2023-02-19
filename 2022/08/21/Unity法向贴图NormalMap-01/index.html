@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Unity法向贴图NormalMap-01 | lhcstation
+  </title>
+  <meta name="description" content="My Blog Description">
+  
+  <meta name="keywords" content="
+  Unity,Unity-Shader,NormalMap
+  ">
+  
+  <meta name="author" content="LHC">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 16 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 17 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 7 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">lhcstation</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    LHC
+
+    <span class="post-date float-right" title="{{moment(1661085325000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1661085325000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Unity法向贴图NormalMap-01</h1>
+    <h2 id="一、法向贴图-Normal-Map"><a href="#一、法向贴图-Normal-Map" class="headerlink" title="一、法向贴图(Normal Map)"></a>一、法向贴图(Normal Map)</h2><ul>
+<li><strong>作用：</strong>从游戏性能考虑，高维模型-&gt;低位模型的转换，由于减少了模型平面数量，将大大提高渲染性能，但是这样的转换将<strong>丢失细节</strong>，如模型上的纹理，模型的凸起与凹陷等。我们可以将平面上各像素点的<strong>法线方向</strong><code>(x,y,z)</code>转换为<strong>像素值</strong><code>(R,G,B)</code>进行保存，即法线贴图。这样可以在低模模型中，尽可能地还原高模模型的<strong>光影细节</strong>，同时也保证了<strong>渲染性能</strong>。</li>
+<li>下面这个视频简明介绍了法线贴图：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qT411J7p9">【游戏开发基础知识】深入了解法线贴图</a></li>
+<li><p>效果对比（无法向贴图）：<br>  <img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/normalMap01.jpg" alt=""></p>
+</li>
+<li><p>效果对比（添加法向贴图）：<br>  <img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/normalMap02.jpg" alt=""></p>
+</li>
+<li>转载自文章<a target="_blank" rel="noopener" href="https://blog.csdn.net/linjf520/article/details/91407398">Unity Shader - Normal map (Bump mapping) 法线贴图（凹凸映射）</a></li>
+</ul>
+<h2 id="二、法线贴图的shader编程"><a href="#二、法线贴图的shader编程" class="headerlink" title="二、法线贴图的shader编程"></a>二、法线贴图的shader编程</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">Shader <span class="string">&quot;DC/Shader/ShaderDemo/NormalMap&quot;</span></span><br><span class="line">&#123;</span><br><span class="line">    Properties</span><br><span class="line">    &#123;</span><br><span class="line">        [Toggle] _UseNormalMap(<span class="string">&quot;UseNormalMap&quot;</span>,<span class="type">float</span>) = <span class="number">0</span></span><br><span class="line">        _MainTex (<span class="string">&quot;Texture&quot;</span>, <span class="number">2</span>D) = <span class="string">&quot;white&quot;</span> &#123;&#125;</span><br><span class="line">        _NormalMap (<span class="string">&quot;NormalMap&quot;</span>, <span class="number">2</span>D) = <span class="string">&quot;white&quot;</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    SubShader</span><br><span class="line">    &#123;</span><br><span class="line">        Tags &#123; <span class="string">&quot;RenderType&quot;</span>=<span class="string">&quot;Opaque&quot;</span> &#125;</span><br><span class="line">        LOD <span class="number">100</span></span><br><span class="line"></span><br><span class="line">        Pass</span><br><span class="line">        &#123;</span><br><span class="line">            CGPROGRAM</span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> vertex vert</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> fragment frag</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> shader_feature _USENORMALMAP_ON</span></span><br><span class="line"></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;UnityCG.cginc&quot;</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Lighting.cginc&quot;</span></span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">struct</span> appdata</span><br><span class="line">            &#123;</span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float4 uv : TEXCOORD0;</span><br><span class="line">                float4 tangent : TEXCOORD1;</span><br><span class="line">                float4 normal : TEXCOORD2;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">v2f</span></span></span><br><span class="line"><span class="class">            &#123;</span></span><br><span class="line">                float4 uv : TEXCOORD0;</span><br><span class="line">                float4 vertex : SV_POSITION;</span><br><span class="line">                float3 lightDir : TEXCOORD1;</span><br><span class="line">                float4 TtoW0 : TEXCOORD2;</span><br><span class="line">                float4 TtoW1 : TEXCOORD3;</span><br><span class="line">                float4 TtoW2 : TEXCOORD4;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            sampler2D _MainTex;</span><br><span class="line">            float4 _MainTex_ST;</span><br><span class="line"></span><br><span class="line">            sampler2D _NormalMap;</span><br><span class="line">            float4 _NormalMap_ST;</span><br><span class="line"></span><br><span class="line">            v2f <span class="title function_">vert</span> <span class="params">(appdata v)</span></span><br><span class="line">            &#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.vertex = UnityObjectToClipPos(v.vertex);</span><br><span class="line">                o.uv.xy = TRANSFORM_TEX(v.uv, _MainTex);</span><br><span class="line">                o.uv.zw = TRANSFORM_TEX(v.uv, _NormalMap);</span><br><span class="line">                o.lightDir = WorldSpaceLightDir(v.vertex);</span><br><span class="line">                float3 worldNormal = UnityObjectToWorldNormal(v.normal);</span><br><span class="line">                float3 worldTangent = UnityObjectToWorldDir(v.tangent);</span><br><span class="line">                float3 worldBinormal = cross(worldNormal, worldTangent) * v.tangent.w;</span><br><span class="line">                float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//tbnp</span></span><br><span class="line">                o.TtoW0 = float4(worldTangent.x, worldBinormal.x, worldNormal.x, worldPos.x);</span><br><span class="line">                o.TtoW1 = float4(worldTangent.y, worldBinormal.y, worldNormal.y, worldPos.y);</span><br><span class="line">                o.TtoW2 = float4(worldTangent.z, worldBinormal.z, worldNormal.z, worldPos.z);</span><br><span class="line">                <span class="keyword">return</span> o;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fixed4 <span class="title function_">frag</span> <span class="params">(v2f i)</span> : SV_Target</span><br><span class="line">            &#123;</span><br><span class="line">                fixed4 col = tex2D(_MainTex, i.uv.xy);</span><br><span class="line">                <span class="meta">#<span class="keyword">if</span> _USENORMALMAP_ON</span></span><br><span class="line">                    fixed3 normal = UnpackNormal(tex2D(_NormalMap, i.uv.zw));</span><br><span class="line">                    normal = normalize(half3(dot(i.TtoW0, normal), dot(i.TtoW1, normal), dot(i.TtoW2, normal)));</span><br><span class="line">                    normal.z = <span class="built_in">sqrt</span>(<span class="number">1.0</span> - saturate(dot(normal.xy, normal.xy)));</span><br><span class="line">                    <span class="comment">// return fixed4(normal,1);</span></span><br><span class="line">                    fixed3 finalCol = dot(normal.xyz, normalize(i.lightDir.xyz)) * col.rgb * _LightColor0.rgb;</span><br><span class="line">                    <span class="keyword">return</span> fixed4(finalCol, col.a);</span><br><span class="line">                <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                    <span class="comment">// return col;</span></span><br><span class="line">                    <span class="keyword">return</span> fixed4(col.rgb * _LightColor0.rgb, col.a);</span><br><span class="line">                <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">            &#125;</span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、Unity-Editer中的法向贴图"><a href="#三、Unity-Editer中的法向贴图" class="headerlink" title="三、Unity Editer中的法向贴图"></a>三、Unity Editer中的法向贴图</h2><p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/normalMap03.png" alt=""></p>
+<h2 id="四、PS生成法向贴图"><a href="#四、PS生成法向贴图" class="headerlink" title="四、PS生成法向贴图"></a>四、PS生成法向贴图</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/nvidia-texture-tools-exporter">NVIDIA Texture Tools Exporter</a></li>
+<li>PS打开贴图图片-&gt;File-&gt;Save As-&gt;Save as type:DDS-NVIDIA Texture Tools Exporter</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/nvidia-texture-tools-exporter">使用说明</a></li>
+</ul>
+<h2 id="五、Reference"><a href="#五、Reference" class="headerlink" title="五、Reference"></a>五、Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qT411J7p9">【游戏开发基础知识】深入了解法线贴图</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/linjf520/article/details/91407398">Unity Shader - Normal map (Bump mapping) 法线贴图（凹凸映射）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ak47007tiger/article/details/100007442">Unity Shader 法线贴图(NormalMap)</a></li>
+</ul>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://lhcstation.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 LHC</li>
+      <li><a href="https://lhcstation.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/sabrinaluo">Github</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="http://weibo.com/206663121">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
