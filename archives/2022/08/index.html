@@ -30,6 +30,14 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <!-- ============= -->
+  <script type="text/javascript">
+    var targetProtocol = "https:";
+    if (window.location.protocol != targetProtocol)
+    window.location.href = targetProtocol +
+    window.location.href.substring(window.location.protocol.length);
+  </script>
+
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 <body id="replica-app">
@@ -411,9 +419,8 @@
 
 <script src="/js/main.js"></script>
 
-
 <!-- ========== -->
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
