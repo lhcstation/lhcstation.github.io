@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <!-- <script type="text/javascript">
+    var targetProtocol = "https:";
+    if (window.location.protocol != targetProtocol)
+      window.location.href = targetProtocol +
+      window.location.href.substring(window.location.protocol.length);
+  </script> -->
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    CNN总结 | lhcstation
+  </title>
+  <meta name="description" content="My Blog Description">
+  
+  <meta name="keywords" content="
+  CNN,DL
+  ">
+  
+  <meta name="author" content="LHC">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/51705426?s=400&amp;u=3a63473c92bc976ba872631ad3b6ef8b7d19c131&amp;v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 17 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 18 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 7 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">lhcstation</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    LHC
+
+    <span class="post-date float-right" title="{{moment(1677160750000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1677160750000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>CNN总结</h1>
+    <h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><ul>
+<li>图像（二维矩阵数据）特征提取</li>
+</ul>
+<h4 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h4><ul>
+<li>卷积核滑呀滑</li>
+</ul>
+<h4 id="核心参数"><a href="#核心参数" class="headerlink" title="核心参数"></a>核心参数</h4><ul>
+<li><p><code>kernel size</code> (卷积核大小=3x3)：无论图像多大，parameters只取决于kernel size和fitter数量    </p>
+</li>
+<li><p><code>paddle</code>(填充大小)：1.每次卷积都会减小图片大小，卷不了几次图片就会变得非常小；2.边缘的像素被使用的次数少</p>
+</li>
+<li><p><code>stride</code> (滑动步长=1)</p>
+</li>
+<li><p><code>max/avg pooling</code>：进一步缩小图片大小，特征放大</p>
+</li>
+</ul>
+<h4 id="特色-亮点"><a href="#特色-亮点" class="headerlink" title="特色/亮点"></a>特色/亮点</h4><ul>
+<li><p><strong>参数共享</strong>：在图像的一部分有用的特征检测器（例如垂直边缘检测器）可能在图像的另一部分有用。与全连接相比大大减小了模型参数。（<em>平移不变性</em>）</p>
+</li>
+<li><p><strong>稀疏连接</strong>：在每一层中，每个输出值仅取决于少量输入。例如卷积核3x3则任何输出只与对应的9个输入数字有关。需要存储的参数更少，不仅减少了模型的存储需求，而且提高了它的统计效率。这也意味着为了得到输出我们只需要更少的计算量。</p>
+</li>
+</ul>
+<h4 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Classifier</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Classifier, self).__init__()</span><br><span class="line">        <span class="comment"># The arguments for commonly used modules:</span></span><br><span class="line">        <span class="comment"># torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding)</span></span><br><span class="line">        <span class="comment"># torch.nn.MaxPool2d(kernel_size, stride, padding)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># input image size: [3, 128, 128]</span></span><br><span class="line">        self.cnn_layers = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">64</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>),</span><br><span class="line"></span><br><span class="line">            nn.Conv2d(<span class="number">64</span>, <span class="number">128</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">128</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>),</span><br><span class="line"></span><br><span class="line">            nn.Conv2d(<span class="number">128</span>, <span class="number">256</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.MaxPool2d(<span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>),</span><br><span class="line">        )</span><br><span class="line">        self.fc_layers = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">256</span> * <span class="number">8</span> * <span class="number">8</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">11</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># input (x): [batch_size, 3, 128, 128]</span></span><br><span class="line">        <span class="comment"># output: [batch_size, 11]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Extract features by convolutional layers.</span></span><br><span class="line">        x = self.cnn_layers(x)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># The extracted feature map must be flatten before going to fully-connected layers.</span></span><br><span class="line">        x = x.flatten(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># The features are transformed by fully-connected layers to obtain the final logits.</span></span><br><span class="line">        x = self.fc_layers(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from torchinfo import summary</span></span><br><span class="line"><span class="comment"># device = &quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;</span></span><br><span class="line"><span class="comment"># model = Classifier().to(device)</span></span><br><span class="line"><span class="comment"># summary(model, input_size=(batch_size, 3, 128, 128))</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/cnn1.png" title="" alt="" data-align="center"></p>
+<h4 id="1x1卷积核的作用？"><a href="#1x1卷积核的作用？" class="headerlink" title="1x1卷积核的作用？"></a>1x1卷积核的作用？</h4><ul>
+<li><p>增加非线性映射次数，增加网络深度，提高网络的非线性能力</p>
+</li>
+<li><p>升维/降维，(减少卷积核参数)</p>
+</li>
+</ul>
+<h4 id="经典案例-Backbone"><a href="#经典案例-Backbone" class="headerlink" title="经典案例(Backbone)"></a>经典案例(Backbone)</h4><ul>
+<li><p>Resnet</p>
+<ul>
+<li>解决深度神经网络的“退化”问题，“退化”指的是，给网络叠加更多的层后，性能却快速下降的情况</li>
+<li>调整求解方法，比如更好的初始化、更好的梯度下降算法等；调整模型结构，让模型更易于优化（改变模型结构实际上是改变了error surface的形态）</li>
+<li>跳跃连接 short cut</li>
+<li><img title="" src="https://s2.ax1x.com/2020/02/21/3uUio4.png" alt="" data-align="center"></li>
+<li>残差块 block</li>
+<li><img src="https://s2.ax1x.com/2020/02/23/3l4cD0.png" title="" alt="" data-align="center"></li>
+<li>error surface</li>
+<li><img src="https://s2.ax1x.com/2020/02/24/38Kd2t.png" title="" alt="" data-align="center"></li>
+</ul>
+</li>
+<li><p>Darknet53</p>
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/16006821-97f202bbc41b91db?imageMogr2/auto-orient/strip|imageView2/2/format/webp" title="" alt="" data-align="center"></li>
+</ul>
+</li>
+<li><p>FPN</p>
+<ul>
+<li>低层的特征语义信息比较少，但是目标位置准确；高层的特征语义信息比较丰富，但是目标位置比较粗略。</li>
+<li><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/fpn1.png" title="" alt="" data-align="center"></li>
+</ul>
+</li>
+</ul>
+<h4 id="视频推荐"><a href="#视频推荐" class="headerlink" title="视频推荐"></a>视频推荐</h4><p><a target="_blank" rel="noopener" href="https://www.coursera.org/learn/convolutional-neural-networks">吴恩达深度学习CNN</a></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://lhcstation.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2023 LHC</li>
+      <li><a href="https://lhcstation.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/lhcstation">Github</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="http://weibo.com/206663121">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<!-- ========== -->
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+</body>
+</html>

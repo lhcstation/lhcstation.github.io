@@ -158,13 +158,13 @@
     <li class="">
       <a href="/">Overview</a></li>
     <li class="">
-      <a href="/archives">Posts <span class="counter">16</span></a>
+      <a href="/archives">Posts <span class="counter">17</span></a>
     </li>
     <li class="selected">
       <a href="/categories">Categories <span
                 class="counter">7</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">17</span></a></li>
+      <a href="/tags">Tags <span class="counter">18</span></a></li>
   </ul>
 </nav>
 
@@ -172,7 +172,39 @@
       <ul class="archive-list">
         
         <li class="archive-list-item">
-          <h2><a href="/2023/02/18/Attention/">Attention</a></h2>
+          <h2><a href="/2023/02/23/CNN%E6%80%BB%E7%BB%93/">CNN总结</a></h2>
+          <p>
+               应用场景：  
+ 图像（二维矩阵数据）特征提取 
+ 
+   概括  
+ 卷积核滑呀滑 
+ 
+   核心参数  
+   kernel size  (卷积核大小=3x3)：无论图像多大，parameters只取决于kernel size和fitter数量     
+ 
+   paddle (填充大...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/CNN/">CNN</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/DL/">DL</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="fa fa-folder-open"></i> 深度学习</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1677160750000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2023/02/18/Attention%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/">Attention原理介绍</a></h2>
           <p>
                概述    心理学  
  动物需要在复杂环境下有效关注值得注意的点 
@@ -186,9 +218,9 @@
           </p>
           <ul class="tag-list clearfix">
             
-            <li class="tag-list-item"><a href="/tags/Attention/">Attention</a></li>
-            
             <li class="tag-list-item"><a href="/tags/DL/">DL</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/Attention/">Attention</a></li>
             
           </ul>
           <div class="post-info">
@@ -241,20 +273,5 @@
 <!-- ========== -->
 <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
