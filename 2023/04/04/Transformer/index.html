@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <!-- <script type="text/javascript">
+    var targetProtocol = "https:";
+    if (window.location.protocol != targetProtocol)
+      window.location.href = targetProtocol +
+      window.location.href.substring(window.location.protocol.length);
+  </script> -->
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Transformer | lhcstation
+  </title>
+  <meta name="description" content="My Blog Description">
+  
+  <meta name="keywords" content="
+  Attention,Transformer
+  ">
+  
+  <meta name="author" content="LHC">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/51705426?s=400&amp;u=3a63473c92bc976ba872631ad3b6ef8b7d19c131&amp;v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 21 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 22 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 8 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">lhcstation</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    LHC
+
+    <span class="post-date float-right" title="{{moment(1680612546000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1680612546000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Transformer</h1>
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>sequence to sequence任务，目前主要依靠循环或卷积神经网络</li>
+<li>通过encoder和decoder，和纯注意力完成翻译任务multi-headed attention</li>
+<li>传统RNN无法并行，需要逐步计算每一步时序信息</li>
+<li>使用卷积神经网络替换RNN，可以并行，但是无法处理长序列问题，需要设计多层卷积才可以融合长序列。卷积优势是可以构造多通道的输出，从而可以识别不同的模式</li>
+<li>通过注意力机制，每一层可以融合所有的时序信息</li>
+<li>设计多头注意力层，实现卷积网络识别不同模式</li>
+</ul>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><ul>
+<li>encoder: 输入$(x_{1}, x_{2}, …, x_{n})$编码器输出$(y_{1}, …, y_{n})$，类似embedding</li>
+<li>decoder: 获得编码器的结果，生成长度为$m$的序列$(y_{1}, …, y_{m})$，并且解码器中$y_{i}$是依次输出的(自回归)</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/transformer.png" alt=""></p>
+<ul>
+<li><p><code>encoder</code>:包含6个相同的编码层，</p>
+<ul>
+<li>每层包含<code>multi-head self-attention</code>与<code>simple, position-wise fully connected feed-forward network</code>两个子模块(后面层实际上是一个MLP)</li>
+<li>各层之间存在残差连接</li>
+<li><p><code>layer normalization</code>: 对于batch normalization的缺点，在训练时，对BN来说需要保存每个step的统计信息（均值和方差）。在测试时，由于变长句子的特性，测试集可能出现比训练集更长的句子，所以对于后面位置的step，是没有训练的统计量使用的。不同句子的长度不一样，对所有的样本统计均值是无意义的。<br><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/transformer2.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/transformer4.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/transformer5.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p><code>decoder</code>: </p>
+<ul>
+<li><code>Masked Multi-Head Attention</code>: 保证$t$时刻只能看到之前的数据，即进行自注意力的时候，只进行$k_{1},…,k_{t-1}$的运算(计算输出的时候将$k_{t}$后面的所有数变成一个无穷小负数)</li>
+<li><code>Multi-Head Attention</code>: 首先通过linear进行降维(具有可学习参数)，进行<code>h</code>次注意力</li>
+<li><p>解码器中第二个注意力模块非自注意力，<code>key,value</code>来自最后一个编码器的输出，<code>q</code>来自解码器</p>
+<p><img src="https://raw.githubusercontent.com/lhcstation/Picgo-imgs/main/img/transformer6.png" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>Position-wise Feed-Forward Networks</code>: 本质上是一个MLP，对输入的每一个词作用同样的一个mlp</p>
+<ul>
+<li>$FFN(x) = max(0, xW_{1}+b_{1})W_{2} + b{2}$</li>
+<li>作用：语义信息的转换，attention层进行语义信息汇聚</li>
+</ul>
+</li>
+<li><p><code>Embedding</code>: 单词，映射为，向量</p>
+</li>
+<li><p><code>position encoding</code>:</p>
+<ul>
+<li>Attention 没有时序信息</li>
+<li>在输入中添加时序信息，使用sin与cos周期函数</li>
+</ul>
+</li>
+</ul>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://lhcstation.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2023 LHC</li>
+      <li><a href="https://lhcstation.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/lhcstation">Github</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="http://weibo.com/206663121">Weibo</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -158,18 +158,126 @@
     <li class="">
       <a href="/">Overview</a></li>
     <li class="selected">
-      <a href="/archives">Posts <span class="counter">17</span></a>
+      <a href="/archives">Posts <span class="counter">21</span></a>
     </li>
     <li class="">
       <a href="/categories">Categories <span
-                class="counter">7</span></a></li>
+                class="counter">8</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">18</span></a></li>
+      <a href="/tags">Tags <span class="counter">22</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2023/04/05/GNN/">GNN</a></h2>
+          <p>
+            ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/DL/">DL</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/GNN/">GNN</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="fa fa-folder-open"></i> 深度学习</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1680677406000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2023/04/04/Transformer/">Transformer</a></h2>
+          <p>
+               概述  
+ sequence to sequence任务，目前主要依靠循环或卷积神经网络 
+ 通过encoder和decoder，和纯注意力完成翻译任务multi-headed attention 
+ 传统RNN无法并行，需要逐步计算每一步时序信息 
+ 使用卷积神经网络替换RNN，可以并行，但...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/Attention/">Attention</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/Transformer/">Transformer</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="fa fa-folder-open"></i> 深度学习</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1680612546000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2023/03/26/diffusionModel/">Diffusion Model 扩散模型</a></h2>
+          <p>
+               模型原理    
+ 
+  每一时刻在输入数据中添加具有相同规律分布的噪声（如高斯分布） 
+ 
+  噪声的含义： 标签  
+ 
+  公式推导 
+ 
+ 
+   
+ 
+ $x_{t} = \sqrt{a_{t}}x_{t-1} + \sqrt{1-\alpha}z_{1}$ 衡量$t$时刻的数据与$...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/DL/">DL</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/Diffusion/">Diffusion</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="fa fa-folder-open"></i> 深度学习</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1679830735000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2023/03/22/VIM/">VIM</a></h2>
+          <p>
+               光标移动  
+  h  
+ 
+...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/VIM/">VIM</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E5%85%B6%E4%BB%96/"><i class="fa fa-folder-open"></i> 其他</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1679490697000).fromNow()}}</span>
+          </div>
+        </li>
         
         <li class="archive-list-item">
           <h2><a href="/2023/02/23/CNN%E6%80%BB%E7%BB%93/">CNN总结</a></h2>
@@ -237,11 +345,12 @@
  动物需要在复杂环境下有效关注值得注意的点 
  心理学框架：人类根据随意线索和不随意线索选择注意点 
  
+   
    注意力机制  
  卷积、全连接、池化层都只考虑不随意的线索 
  注意力机制则显式的考虑随意线索 
  随意线索被称之为 查询query  
- 每一个输入是一个 ...
+ 每一个输入...
           </p>
           <ul class="tag-list clearfix">
             
@@ -327,113 +436,6 @@
             </span>
             <span><i class="fa fa-tag"></i> 1 </span>
             <span>Published {{moment(1663507005000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/2022/09/17/%E5%AF%BC%E6%95%B0%E8%A1%A8/">导数表与积分表</a></h2>
-          <p>
-               导数表    
-   积分表    
-   不定积分的性质  
- $ {\int[f(x)+g(x)] \mathrm{d} x=\int f(x) \mathrm{d} x+\int g(x) \mathrm{d} x} $ 
-  
- 
-...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/tags/%E6%B1%82%E5%AF%BC%E4%B8%8E%E7%A7%AF%E5%88%86/">求导与积分</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/"><i class="fa fa-folder-open"></i> 数学</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 1 </span>
-            <span>Published {{moment(1663424851000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/2022/09/11/UnityEditor%E6%89%93%E5%8C%85%E9%94%99%E8%AF%AF/">UnityEditor打包错误</a></h2>
-          <p>
-               问题描述  
- Unity Editor在开发的时候固然好用，但是到打包的时候就会报错： 
- 
- 
- The type or namespace name `UnityEditor’ could not be found 
- 
-   解决方案  
- 使用条件编译，打包的时候跳过UnityEdi...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/tags/Unity/">Unity</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/Unity-Editor/">Unity-Editor</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/categories/Unity3D/"><i class="fa fa-folder-open"></i> Unity3D</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 2 </span>
-            <span>Published {{moment(1662909679000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/2022/09/11/Intersections/">Learning Eco-Driving Strategies at Signalized Intersections</a></h2>
-          <p>
-               摘要  
- 车辆在主干道上的信号控制交叉口出现空转与剧烈加速现象，这导致燃油消耗与二氧化碳排放。因此，有一系列关于生态驾驶控制策略的研究，以减少交叉口处的燃油消耗与尾气排放等级。然而，在各种交通情景中设计有效控制策略的方法仍然难以捉摸。在本文中，我们提出了一种强化学习RL方法，来学习有效的生态...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/%E4%BA%A4%E5%8F%89%E5%8F%A3%E6%8E%A7%E5%88%B6/">交叉口控制</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/%E7%94%9F%E6%80%81%E9%A9%BE%E9%A9%B6/">生态驾驶</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/categories/2022%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"><i class="fa fa-folder-open"></i> 2022论文阅读</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 3 </span>
-            <span>Published {{moment(1662881065000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/2022/08/31/22-8-29IELTS%E6%99%A8%E8%AF%BB/">22-8-29IELTS晨读</a></h2>
-          <p>
-             
- Some people strongly advocate governoment spending on art while their  opponents point out  that public services and facilities  deserve  more fund...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/tags/IELTS%E5%8F%A3%E8%AF%AD/">IELTS口语</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/%E5%8F%A3%E8%AF%AD%E7%B4%A0%E6%9D%90/">口语素材</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/categories/IELTS/"><i class="fa fa-folder-open"></i> IELTS</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 2 </span>
-            <span>Published {{moment(1661951578000).fromNow()}}</span>
           </div>
         </li>
         
